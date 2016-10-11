@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 22:52:04 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/07 12:23:35 by jmoucade         ###   ########.fr       */
+/*   Created: 2016/08/15 03:50:51 by jmoucade          #+#    #+#             */
+/*   Updated: 2016/08/20 02:45:15 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	long l_nbr;
-	long d;
+	unsigned int	len;
+	unsigned int	len_src;
 
-	l_nbr = (long)nb;
-	if (l_nbr == 0)
+	len_src = ft_strlen(src);
+	len = 0;
+	while (src[len] && len < n)
 	{
-		ft_putchar('0');
-		return ;
+		dest[len] = src[len];
+		len++;
 	}
-	if (l_nbr < 0)
-	{
-		ft_putchar('-');
-		l_nbr *= -1;
-	}
-	d = 1;
-	while (l_nbr / d != 0)
-		d *= 10;
-	while (d - 1)
-	{
-		ft_putchar((l_nbr - (l_nbr / d * d)) / (d / 10) + 48);
-		d /= 10;
-	}
+	if (n > len_src)
+		dest[len] = '\0';
+	return (dest);
 }

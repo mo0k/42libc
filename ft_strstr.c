@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 22:52:04 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/07 12:23:35 by jmoucade         ###   ########.fr       */
+/*   Created: 2016/08/15 07:01:02 by jmoucade          #+#    #+#             */
+/*   Updated: 2016/08/15 16:16:31 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr(int nb)
+char	*ft_strstr(char *str, char *to_find)
 {
-	long l_nbr;
-	long d;
+	int len;
+	int count;
+	int i;
 
-	l_nbr = (long)nb;
-	if (l_nbr == 0)
+	count = -1;
+	len = -1;
+	while (*(to_find + (++len)))
 	{
-		ft_putchar('0');
-		return ;
 	}
-	if (l_nbr < 0)
+	len--;
+	while (str[++count])
 	{
-		ft_putchar('-');
-		l_nbr *= -1;
+		i = 0;
+		while (str[count + i] == to_find[i] && str[count + i])
+		{
+			if (i == len)
+				return (&str[count + i - len]);
+			i++;
+		}
 	}
-	d = 1;
-	while (l_nbr / d != 0)
-		d *= 10;
-	while (d - 1)
-	{
-		ft_putchar((l_nbr - (l_nbr / d * d)) / (d / 10) + 48);
-		d /= 10;
-	}
+	return (str);
 }

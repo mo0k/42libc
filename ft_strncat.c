@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 22:52:04 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/07 12:23:35 by jmoucade         ###   ########.fr       */
+/*   Created: 2016/08/16 06:02:30 by jmoucade          #+#    #+#             */
+/*   Updated: 2016/10/16 06:28:53 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+char		*ft_strncat(char *dest, char *src, int nb)
 {
-	long l_nbr;
-	long d;
+	int		len;
+	int		count;
 
-	l_nbr = (long)nb;
-	if (l_nbr == 0)
+	len = ft_strlen(dest);
+	count = 0;
+	while (src[count] && count < nb)
 	{
-		ft_putchar('0');
-		return ;
+		dest[len + count] = src[count];
+		count++;
 	}
-	if (l_nbr < 0)
-	{
-		ft_putchar('-');
-		l_nbr *= -1;
-	}
-	d = 1;
-	while (l_nbr / d != 0)
-		d *= 10;
-	while (d - 1)
-	{
-		ft_putchar((l_nbr - (l_nbr / d * d)) / (d / 10) + 48);
-		d /= 10;
-	}
+	dest[len + count] = '\0';
+	return (dest);
 }

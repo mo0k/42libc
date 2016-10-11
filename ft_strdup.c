@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 22:52:04 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/07 12:23:35 by jmoucade         ###   ########.fr       */
+/*   Created: 2016/08/20 05:58:13 by jmoucade          #+#    #+#             */
+/*   Updated: 2016/10/10 22:58:15 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+char		*ft_strdup(char *src)
 {
-	long l_nbr;
-	long d;
+	int		ct;
+	char	*ptr;
 
-	l_nbr = (long)nb;
-	if (l_nbr == 0)
+	ct = 0;
+	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
+		return (0);
+	while (src[ct])
 	{
-		ft_putchar('0');
-		return ;
+		ptr[ct] = src[ct];
+		ct++;
 	}
-	if (l_nbr < 0)
-	{
-		ft_putchar('-');
-		l_nbr *= -1;
-	}
-	d = 1;
-	while (l_nbr / d != 0)
-		d *= 10;
-	while (d - 1)
-	{
-		ft_putchar((l_nbr - (l_nbr / d * d)) / (d / 10) + 48);
-		d /= 10;
-	}
+	ptr[ct] = '\0';
+	return (ptr);
 }

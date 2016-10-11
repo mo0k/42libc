@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 22:52:04 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/07 12:23:35 by jmoucade         ###   ########.fr       */
+/*   Created: 2016/08/15 20:05:02 by jmoucade          #+#    #+#             */
+/*   Updated: 2016/08/15 20:05:12 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr(int nb)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	long l_nbr;
-	long d;
+	unsigned int	ct;
 
-	l_nbr = (long)nb;
-	if (l_nbr == 0)
+	ct = 0;
+	while ((s1[ct] || s2[ct] || ct < n) && (s1[ct] == s2[ct]))
 	{
-		ft_putchar('0');
-		return ;
+		if (s1[ct] < s2[ct])
+			return (s1[ct] - s2[ct]);
+		if (s1[ct] > s2[ct])
+			return (s1[ct] - s2[ct]);
+		ct++;
 	}
-	if (l_nbr < 0)
-	{
-		ft_putchar('-');
-		l_nbr *= -1;
-	}
-	d = 1;
-	while (l_nbr / d != 0)
-		d *= 10;
-	while (d - 1)
-	{
-		ft_putchar((l_nbr - (l_nbr / d * d)) / (d / 10) + 48);
-		d /= 10;
-	}
+	return (s1[ct] - s2[ct]);
 }
