@@ -10,16 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	int	ct;
 
 	ct = 0;
-	while ((s1[ct] || s2[ct]) && (s1[ct] == s2[ct]))
+	while (s1[ct] || s2[ct])
 	{
-		if (s1[ct] < s2[ct])
-			return (s1[ct] - s2[ct]);
-		if (s1[ct] > s2[ct])
+		if (s1[ct] < s2[ct] || s1[ct] > s2[ct])
 			return (s1[ct] - s2[ct]);
 		ct++;
 	}

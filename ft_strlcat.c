@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-unsigned int		ft_strlcat(char *dest, char *src, unsigned int size)
+size_t				ft_strlcat(char *dest, const char *src, unsigned int size)
 {
 	unsigned int	count;
 	unsigned int	len_dest;

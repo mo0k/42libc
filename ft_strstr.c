@@ -10,27 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
+#include "libft.h"
+
+char	*ft_strstr(const char *str, const char *to_find)
 {
 	int len;
 	int count;
 	int i;
 
 	count = -1;
-	len = -1;
-	while (*(to_find + (++len)))
-	{
-	}
-	len--;
+	len = ft_strlen(to_find) - 1;
 	while (str[++count])
 	{
 		i = 0;
 		while (str[count + i] == to_find[i] && str[count + i])
 		{
 			if (i == len)
-				return (&str[count + i - len]);
+				return ((char *)str + count + i - len);
 			i++;
 		}
 	}
-	return (str);
+	return ((char *)str);
 }
