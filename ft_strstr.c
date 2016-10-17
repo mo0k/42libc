@@ -15,19 +15,19 @@
 char	*ft_strstr(const char *str, const char *to_find)
 {
 	int len;
-	int count;
 	int i;
+	int j;
 
-	count = -1;
-	len = ft_strlen(to_find) - 1;
-	while (str[++count])
+	i = -1;
+	len = ft_strlen(to_find);
+	while (str[++i])
 	{
-		i = 0;
-		while (str[count + i] == to_find[i] && str[count + i])
+		j = 0;
+		while (str[i + j] == to_find[j] && str[i + j])
 		{
-			if (i == len)
-				return ((char *)str + count + i - len);
-			i++;
+			if (j == len - 1)
+				return ((char *)str + i);
+			j++;
 		}
 	}
 	return ((char *)str);
