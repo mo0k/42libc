@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/14 13:07:25 by jmoucade          #+#    #+#             */
 /*   Updated: 2016/08/17 03:05:31 by jmoucade         ###   ########.fr       */
@@ -27,11 +27,12 @@ long		ft_calcul(char *str, int sign)
 int			ft_is_charc_special(char c)
 {
 	int		count;
-	char	tab_char_special[5];
+	char	tab_char_special[6];
 
 	count = -1;
 	while (++count < 5)
 		tab_char_special[count] = count + 9;
+	tab_char_special[count] = ' ';
 	count = 0;
 	while (tab_char_special[count])
 	{
@@ -39,7 +40,7 @@ int			ft_is_charc_special(char c)
 			return (1);
 		count++;
 	}
-	if (c == '+' || c == '-' || c == ' ')
+	if (c == '+' || c == '-')
 		return (2);
 	else
 		return (0);
@@ -47,11 +48,9 @@ int			ft_is_charc_special(char c)
 
 int			ft_atoi(const char *str)
 {
-	long	result;
 	int		n;
 	int		sign;
 
-	result = 0;
 	n = -1;
 	sign = 1;
 	while (ft_is_charc_special(*(str + (++n))) || ft_isdigit(*(str + n)))
@@ -60,15 +59,13 @@ int			ft_atoi(const char *str)
 		{
 			if (*(str + n) == '-')
 				sign = -1;
-			if (ft_is_charc_special(*(str + n - 1)) == 2 ||
-					ft_is_charc_special(*(str + n)) == 2)
+			if ((ft_is_charc_special(*(str + n - 1)) == 2 &&
+					ft_is_charc_special(*(str + n)) == 2 ) || 
+					ft_is_charc_special(*(str + n + 1)) == 1)
 				return (0);
 		}
 		if (ft_isdigit(*(str + n)))
-		{
-			result = ft_calcul((char *)str + n, sign);
-			return (result);
-		}
+			return (ft_calcul((char *)str + n, sign));
 	}
 	return (0);
 }
