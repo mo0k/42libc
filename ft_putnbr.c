@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+void		ft_putnbr(int nb)
 {
-	long l_nbr;
-	long d;
+	long	l_nbr;
+	long	d;
 
 	l_nbr = (long)nb;
 	if (l_nbr == 0)

@@ -12,27 +12,6 @@
 
 #include "libft.h"
 
-int			ft_intlen(int nbr)
-{
-	long	l_nbr;
-	long	d;
-	int		len;
-
-	len = 0;
-	d = 1;
-	l_nbr = (long)nbr;
-	if (l_nbr == 0)
-		return (1);
-	if (l_nbr < 0)
-		len++;
-	while (l_nbr / d != 0)
-	{
-		len++;
-		d *= 10;
-	}
-	return (len);
-}
-
 char		*ft_itoa(int n)
 {
 	long	nbr;
@@ -43,7 +22,7 @@ char		*ft_itoa(int n)
 	i = 0;
 	div = 1;
 	nbr = (long)n;
-	if (!(ret = ft_strnew(ft_intlen(n))))
+	if (!(ret = ft_strnew(ft_nbrlen(n))))
 		return (NULL);
 	if (nbr == 0)
 		ret[i] = '0';
