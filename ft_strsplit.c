@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int			count_word(char const *str, char const c)
+static int		count_word(char const *str, char const c)
 {
-	int		ct;
-	int		nbr;
+	int			ct;
+	int			nbr;
 
 	nbr = 0;
 	ct = 0;
@@ -30,9 +30,9 @@ int			count_word(char const *str, char const c)
 	return (nbr);
 }
 
-int			len_word(char const *str, char const c)
+static int		len_word(char const *str, char const c)
 {
-	int 	len;
+	int 		len;
 
 	len = 0;
 	if (!str || !c)
@@ -46,20 +46,20 @@ int			len_word(char const *str, char const c)
 	return (len);
 }
 
-char		*get_start(char *str, char const c)
+static char		*get_start(char *str, char const c)
 {
 	while (*str == c)
 		str++;
 	return (str);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	char	**tab;
-	char	*str;
-	char	*start;
-	int		word;
-	int		nbr_word;
+	char		**tab;
+	char		*str;
+	char		*start;
+	int			word;
+	int			nbr_word;
 
 	word = 0;
 	if (!s || !c)

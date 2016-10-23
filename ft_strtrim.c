@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int			is_separator(char c)
+static int	is_separator(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n') ? (1) : (0);
 }

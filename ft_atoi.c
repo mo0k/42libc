@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-long		ft_calcul(char *str, int sign)
+static long		ft_calcul(char *str, int sign)
 {
-	long	value;
-	int		count;
+	long		value;
+	int			count;
 
 	value = 0;
 	count = 0;
@@ -24,10 +24,10 @@ long		ft_calcul(char *str, int sign)
 	return (sign * value);
 }
 
-int			ft_is_charc_special(char c)
+static int		ft_is_charc_special(char c)
 {
-	int		count;
-	char	tab_char_special[6];
+	int			count;
+	char		tab_char_special[6];
 
 	count = -1;
 	while (++count < 5)
