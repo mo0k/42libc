@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                        :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/13/10 22:52:04 by jmoucade          #+#    #+#             */
 /*   Updated: 2016/14/10 12:23:35 by jmoucade         ###   ########.fr       */
@@ -14,16 +14,12 @@
 
 void		*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*str_dst;
-	char	*str_src;
-	char	tmp[len];
-	size_t	i;
+	void	*ret;
 
-	i = 0;
-	str_dst = (char *)dst;
-	str_src = (char *)src;
-	ft_memset(tmp, 0, len);
-	ft_memcpy(tmp, str_src, len);
-	ft_memcpy(dst, tmp, len);
-	return (dst);
+	ret = dst;
+	if (dst < src)
+		ft_memcpy(dst, src, len);
+	else
+		ft_memrcpy(dst, src, len);
+	return (ret);
 }
