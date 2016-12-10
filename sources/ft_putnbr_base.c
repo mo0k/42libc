@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/10 18:03:39 by jmoucade          #+#    #+#             */
+/*   Updated: 2016/12/10 18:03:41 by jmoucade         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/libft.h"
 
-static int			check_base(char *base, int len)
+static int		check_base(char *base, int len)
 {
 	if (len == 10)
 		return (ft_strcmp(base, "0123456789"));
@@ -10,8 +22,6 @@ static int			check_base(char *base, int len)
 		return (ft_strcmp(base, "0123456789ABCDEF"));
 	if (len == 8)
 		return (ft_strcmp(base, "01234567"));
-	if (len == 3)
-		return (ft_strcmp(base, "rwx"));
 	return (0);
 }
 
@@ -60,9 +70,9 @@ static void		ft_putnbr_b(int nbr, char *base, int len_base)
 	}
 }
 
-void		ft_putnbr_base(int nbr, char *base)
+void			ft_putnbr_base(int nbr, char *base)
 {
-	int	len;
+	int			len;
 
 	len = 0;
 	while (base[len])
