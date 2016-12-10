@@ -95,5 +95,7 @@ int				*ft_range(int min, int max);
 void			ft_foreach(int *tab, int length, void (*f)(int));
 int				ft_count_if(char **tab, int (*f)(char*));
 void			ft_puttab(char **tab);
+void			ft_putnbr_base(int nbr, char *base);
+char			*ft_itoa_base(int nbr, char *base);
 
 #endif

@@ -86,7 +86,9 @@ SRCS = 	$(SRCS_PATH)/ft_memset.c			\
 		$(SRCS_PATH)/ft_range.c			\
 		$(SRCS_PATH)/ft_foreach.c		\
 		$(SRCS_PATH)/ft_count_if.c		\
-		$(SRCS_PATH)/ft_puttab.c			
+		$(SRCS_PATH)/ft_puttab.c			\
+		$(SRCS_PATH)/ft_putnbr_base.c 		\
+		$(SRCS_PATH)/ft_itoa_base.c
 
 OBJ	= $(SRCS:%.c=%.o)
 
