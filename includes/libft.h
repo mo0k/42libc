@@ -97,5 +97,12 @@ int				ft_count_if(char **tab, int (*f)(char*));
 void			ft_puttab(char **tab);
 void			ft_putnbr_base(int nbr, char *base);
 char			*ft_itoa_base(int nbr, char *base);
+int				ft_stracat(char **dst, char *src);
+int				ft_addchar(char **dst, char c);
+char 			***ft_get_triple_tab(int line, int columm, int len);
+void 			ft_print_triple_tab(char ***tab);
+void 			ft_delete_triple_tab(char ***tab);
+int 			ft_strpadding_right(char **str, int len_max);
+int 			ft_strpadding_left(char **str, int len_max);
 
 #endif

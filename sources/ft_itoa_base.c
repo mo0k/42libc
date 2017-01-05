@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-static int		check_base(char *base, int len)
+static int			check_base(char *base, int len)
 {
 	if (len == 10)
 		return (ft_strcmp(base, "0123456789"));
@@ -27,7 +27,7 @@ static int		check_base(char *base, int len)
 
 static char		*ft_strjoinc(char *s1, char const c)
 {
-	char		*ptr;
+	char	*ptr;
 
 	ptr = NULL;
 	if (s1)
@@ -51,7 +51,7 @@ static char		*ft_strjoinc(char *s1, char const c)
 	return (ptr);
 }
 
-char			*ft_itoa_b(char **ret, int n, char *base, int len_base)
+char		*ft_itoa_b(char **ret, int n, char *base, int len_base)
 {
 	if (n < 0)
 	{
@@ -73,10 +73,11 @@ char			*ft_itoa_b(char **ret, int n, char *base, int len_base)
 	return (*ret);
 }
 
-char			*ft_itoa_base(int nbr, char *base)
+
+char		*ft_itoa_base(int nbr, char *base)
 {
-	int			len;
-	char		*ret;
+	int		len;
+	char	*ret;
 
 	len = ft_strlen(base);
 	if (!(ret = ft_strnew(ft_nbrlen(1))))
