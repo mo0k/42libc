@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stracat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 20:53:17 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/12/12 00:40:35 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/01/25 22:20:05 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			ft_stracat(char **dst, char *src)
 {
-	char			*tmp;
+	char	*tmp;
 
 	if (!dst || !src || !*dst)
 		return (0);

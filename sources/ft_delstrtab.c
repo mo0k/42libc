@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_delstrtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 23:31:45 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/24 11:01:37 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/24 10:45:53 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/02/06 19:13:12 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include <libft.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void	ft_delstrtab(char **tab)
 {
-	while (*alst)
+	int	i;
+
+	i = 0;
+	while (tab && tab[i])
 	{
-		del((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		(*alst) = (*alst)->next;
+		free(tab[i]);
+		i++;
 	}
-	*alst = NULL;
+	free(tab);
+	tab = NULL;
 }

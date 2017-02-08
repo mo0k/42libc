@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstselect.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:39:30 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/23 20:25:43 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/24 10:43:27 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/01/24 10:57:51 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char		*ft_strdup(const char *src)
+t_list	*ft_lstselect(t_list **alst, char *elem, int (*select)(t_list*, char*))
 {
-	int		ct;
-	char	*ptr;
+	t_list *cur;
 
-	ct = 0;
-	ptr = NULL;
-	if (!src)
+	cur = *alst;
+	if (!cur)
 		return (NULL);
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
-		return (NULL);
-	while (src[ct])
+	while (cur)
 	{
-		ptr[ct] = src[ct];
-		ct++;
+		if (select(cur, elem))
+			return (cur);
+		cur = cur->next;
 	}
-	ptr[ct] = '\0';
-	return (ptr);
+	return (NULL);
 }

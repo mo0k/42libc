@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_str3join.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:39:30 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/23 20:25:43 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/30 09:47:56 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/01/30 15:56:34 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strdup(const char *src)
+char		*ft_str3join(char const *s1, char const *s2, char const *s3)
 {
-	int		ct;
 	char	*ptr;
+	int		len;
 
-	ct = 0;
 	ptr = NULL;
-	if (!src)
+	if (!s1 || !s2 || !s3)
 		return (NULL);
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
+	len = ft_strlen(s1) + ft_strlen(s2) + ft_strlen(s3);
+	if (!(ptr = ft_strnew(len)))
 		return (NULL);
-	while (src[ct])
-	{
-		ptr[ct] = src[ct];
-		ct++;
-	}
-	ptr[ct] = '\0';
+	ptr = ft_strcpy(ptr, s1);
+	ptr = ft_strcat(ptr, s2);
+	ptr = ft_strcat(ptr, s3);
 	return (ptr);
 }

@@ -51,6 +51,7 @@ SRCS = 	$(SRCS_PATH)/ft_memset.c			\
 		$(SRCS_PATH)/ft_memalloc.c		\
 		$(SRCS_PATH)/ft_memdel.c			\
 		$(SRCS_PATH)/ft_strnew.c			\
+		$(SRCS_PATH)/ft_strdelnew.c			\
 		$(SRCS_PATH)/ft_strdel.c			\
 		$(SRCS_PATH)/ft_strclr.c			\
 		$(SRCS_PATH)/ft_striter.c		\
@@ -75,9 +76,15 @@ SRCS = 	$(SRCS_PATH)/ft_memset.c			\
 		$(SRCS_PATH)/ft_lstnew.c			\
 		$(SRCS_PATH)/ft_lstdelone.c		\
 		$(SRCS_PATH)/ft_lstdel.c			\
-		$(SRCS_PATH)/ft_lstadd.c			\
+		$(SRCS_PATH)/ft_lstdelfirst.c			\
+		$(SRCS_PATH)/ft_lstdelnext.c			\
+		$(SRCS_PATH)/ft_lstadd_start.c			\
+		$(SRCS_PATH)/ft_lstadd_end.c			\
+		$(SRCS_PATH)/ft_lstrev.c			\
 		$(SRCS_PATH)/ft_lstiter.c		\
+		$(SRCS_PATH)/ft_lstselect.c		\
 		$(SRCS_PATH)/ft_lstmap.c			\
+		$(SRCS_PATH)/get_next_line.c		\
 		$(SRCS_PATH)/ft_nbrlen.c			\
 		$(SRCS_PATH)/ft_memrcpy.c		\
 		$(SRCS_PATH)/ft_lstlen.c			\
@@ -86,13 +93,15 @@ SRCS = 	$(SRCS_PATH)/ft_memset.c			\
 		$(SRCS_PATH)/ft_range.c			\
 		$(SRCS_PATH)/ft_foreach.c		\
 		$(SRCS_PATH)/ft_count_if.c		\
-		$(SRCS_PATH)/ft_puttab.c			\
+		$(SRCS_PATH)/ft_putstrtab.c			\
+		$(SRCS_PATH)/ft_delstrtab.c			\
 		$(SRCS_PATH)/ft_putnbr_base.c 		\
 		$(SRCS_PATH)/ft_itoa_base.c 		\
 		$(SRCS_PATH)/ft_stracat.c 			\
 		$(SRCS_PATH)/ft_triple_tab.c 			\
 		$(SRCS_PATH)/ft_strpadding_right.c 			\
 		$(SRCS_PATH)/ft_strpadding_left.c 			\
+		$(SRCS_PATH)/ft_str3join.c 			\
 		$(SRCS_PATH)/ft_addchar.c
 
 

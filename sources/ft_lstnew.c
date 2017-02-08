@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 17:45:24 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/05 17:45:30 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/01/24 11:01:08 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list *list;
+	t_list	*list;
 
 	if (!(list = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
@@ -34,5 +34,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		list->content_size = content_size;
 	}
 	list->next = NULL;
+	list->prev = NULL;
 	return (list);
 }

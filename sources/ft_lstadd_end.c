@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:39:30 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/23 20:25:43 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/24 10:44:06 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/01/24 11:01:49 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char		*ft_strdup(const char *src)
+void		ft_lstadd_end(t_list **alst, t_list *new)
 {
-	int		ct;
-	char	*ptr;
+	t_list	*prev;
+	t_list	*cur;
 
-	ct = 0;
-	ptr = NULL;
-	if (!src)
-		return (NULL);
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
-		return (NULL);
-	while (src[ct])
+	prev = NULL;
+	cur = *alst;
+	if (!new)
+		return ;
+	if (!*alst)
 	{
-		ptr[ct] = src[ct];
-		ct++;
+		ft_lstadd_start(alst, new);
+		return ;
 	}
-	ptr[ct] = '\0';
-	return (ptr);
+	while (cur)
+	{
+		prev = cur;
+		cur = cur->next;
+	}
+	prev->next = new;
+	new->prev = prev;
+	new->next = NULL;
 }

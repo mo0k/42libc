@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstrtab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:39:30 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/23 20:25:43 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/12 21:27:28 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/01/24 11:09:58 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strdup(const char *src)
+void		ft_putstrtab(char **tab)
 {
-	int		ct;
-	char	*ptr;
+	int		i;
 
-	ct = 0;
-	ptr = NULL;
-	if (!src)
-		return (NULL);
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
-		return (NULL);
-	while (src[ct])
+	i = 0;
+	if (!tab)
+		return ;
+	while (tab[i])
 	{
-		ptr[ct] = src[ct];
-		ct++;
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
+		i++;
 	}
-	ptr[ct] = '\0';
-	return (ptr);
 }

@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelfirst.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:39:30 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/23 20:25:43 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/24 10:44:36 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/01/24 11:01:31 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char		*ft_strdup(const char *src)
+void		ft_lstdelfirst(t_list **alst, void (*del)(void*, size_t))
 {
-	int		ct;
-	char	*ptr;
+	t_list	*next;
 
-	ct = 0;
-	ptr = NULL;
-	if (!src)
-		return (NULL);
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
-		return (NULL);
-	while (src[ct])
-	{
-		ptr[ct] = src[ct];
-		ct++;
-	}
-	ptr[ct] = '\0';
-	return (ptr);
+	if (!*alst && !del)
+		return ;
+	next = (*alst)->next;
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = next;
+	if (*alst)
+		(*alst)->prev = NULL;
 }

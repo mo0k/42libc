@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:39:30 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/01/23 20:25:43 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/01/24 10:43:16 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/01/24 11:00:54 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char		*ft_strdup(const char *src)
+void		ft_lstrev(t_list **alst)
 {
-	int		ct;
-	char	*ptr;
+	t_list	*prev;
+	t_list	*cur;
+	t_list	*tmp;
 
-	ct = 0;
-	ptr = NULL;
-	if (!src)
-		return (NULL);
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
-		return (NULL);
-	while (src[ct])
+	prev = NULL;
+	cur = *alst;
+	if (!*alst)
+		return ;
+	while (cur)
 	{
-		ptr[ct] = src[ct];
-		ct++;
+		tmp = cur->next;
+		cur->next = cur->prev;
+		cur->prev = tmp;
+		prev = cur;
+		cur = cur->prev;
 	}
-	ptr[ct] = '\0';
-	return (ptr);
+	*alst = prev;
 }
