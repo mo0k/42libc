@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:50:56 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/05 14:53:12 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/02/06 19:03:14 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
+	struct s_list	*prev;
 }				t_list;
 
 void			*ft_memset (void *s, int c, size_t n);
@@ -58,6 +59,7 @@ void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 char			*ft_strnew(size_t size);
 void			ft_strdel(char **as);
+void			ft_strdelnew(char **addr, char *value);
 void			ft_strclr(char *s);
 void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
@@ -82,27 +84,34 @@ void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lstdelfirst(t_list **alst, void (*del)(void*, size_t));
+void			ft_lstdelnext(t_list **alst, void (*del)(void*, size_t));
+void			ft_lstadd_start(t_list **alst, t_list *new);
+void			ft_lstadd_end(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list			*ft_lstselect(t_list **l, char *elem, int (*f)(t_list*, char*));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void			ft_lstrev(t_list **alst);
+size_t			ft_lstlen(t_list *lst);
 
 size_t			ft_nbrlen(int nbr);
 void			*ft_memrcpy(void *dst, const void *src, size_t n);
-size_t			ft_lstlen(t_list *lst);
 int				ft_is_space(char c);
 void			ft_swap(int *a, int *b);
 int				*ft_range(int min, int max);
 void			ft_foreach(int *tab, int length, void (*f)(int));
 int				ft_count_if(char **tab, int (*f)(char*));
-void			ft_puttab(char **tab);
+void			ft_putstrtab(char **tab);
+void			ft_delstrtab(char **tab);
 void			ft_putnbr_base(int nbr, char *base);
 char			*ft_itoa_base(int nbr, char *base);
 int				ft_stracat(char **dst, char *src);
 int				ft_addchar(char **dst, char c);
-char 			***ft_get_triple_tab(int line, int columm, int len);
-void 			ft_print_triple_tab(char ***tab);
-void 			ft_delete_triple_tab(char ***tab);
-int 			ft_strpadding_right(char **str, int len_max);
-int 			ft_strpadding_left(char **str, int len_max);
+char			***ft_get_triple_tab(int line, int columm, int len);
+void			ft_print_triple_tab(char ***tab);
+void			ft_delete_triple_tab(char ***tab);
+int				ft_strpadding_right(char **str, int len_max);
+int				ft_strpadding_left(char **str, int len_max);
+char			*ft_str3join(char const *s1, char const *s2, char const *s3);
 
 #endif
