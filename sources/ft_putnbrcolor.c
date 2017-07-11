@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_putnbrcolor.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:33:22 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/04/07 22:21:18 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/03/15 23:42:20 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/03/16 00:06:40 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void		ft_putnbrcolor(int nb, char *color)
 {
-	if (!s)
+	long	l_nbr;
+	long	d;
+
+	l_nbr = (long)nb;
+	if (l_nbr == 0)
+	{
+		ft_putchar('0');
 		return ;
-	write(1, s, ft_strlen(s));
-	ft_putchar('\n');
+	}
+	if (l_nbr < 0)
+	{
+		ft_putchar('-');
+		l_nbr *= -1;
+	}
+	d = 1;
+	while (l_nbr / d != 0)
+		d *= 10;
+	ft_putstr(color);
+	while (d - 1)
+	{
+		ft_putchar((l_nbr - (l_nbr / d * d)) / (d / 10) + 48);
+		d /= 10;
+	}
+	ft_putstr(C_DFL);
 }

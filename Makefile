@@ -6,7 +6,7 @@
 #   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2016/08/14 13:07:25 by jmoucade          #+#    #+#             #
-#   Updated: 2016/08/17 03:05:31 by jmoucade         ###   ########.fr       #
+#    Updated: 2017/07/11 17:59:52 by jmoucade         ###   ########.fr        #
 #                                                                            #
 # ************************************************************************** #
 
@@ -17,6 +17,11 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 INC_PATH = includes
+
+INCS = $(INC_PATH)/buffer_controler.h	\
+		$(INC_PATH)/colors.h			\
+		$(INC_PATH)/get_next_line.h		\
+		$(INC_PATH)/libft.h	
 
 SRCS_PATH = sources
 
@@ -73,6 +78,14 @@ SRCS = 	$(SRCS_PATH)/ft_memset.c			\
 		$(SRCS_PATH)/ft_putendl_fd.c		\
 		$(SRCS_PATH)/ft_putnbr.c			\
 		$(SRCS_PATH)/ft_putnbr_fd.c		\
+		$(SRCS_PATH)/ft_putcharcolor.c		\
+		$(SRCS_PATH)/ft_putcharcolor_fd.c		\
+		$(SRCS_PATH)/ft_putstrcolor.c			\
+		$(SRCS_PATH)/ft_putstrcolor_fd.c		\
+		$(SRCS_PATH)/ft_putendlcolor.c		\
+		$(SRCS_PATH)/ft_putendlcolor_fd.c		\
+		$(SRCS_PATH)/ft_putnbrcolor.c			\
+		$(SRCS_PATH)/ft_putnbrcolor_fd.c		\
 		$(SRCS_PATH)/ft_lstnew.c			\
 		$(SRCS_PATH)/ft_lstdelone.c		\
 		$(SRCS_PATH)/ft_lstdel.c			\
@@ -101,15 +114,16 @@ SRCS = 	$(SRCS_PATH)/ft_memset.c			\
 		$(SRCS_PATH)/ft_triple_tab.c 			\
 		$(SRCS_PATH)/ft_strpadding_right.c 			\
 		$(SRCS_PATH)/ft_strpadding_left.c 			\
-		$(SRCS_PATH)/ft_str3join.c 			\
-		$(SRCS_PATH)/ft_addchar.c
+		$(SRCS_PATH)/ft_str3join.c			\
+		$(SRCS_PATH)/ft_addchar.c			\
+		$(SRCS_PATH)/buffer_controler.c
 
 
 OBJ	= $(SRCS:%.c=%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(INCS) $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c

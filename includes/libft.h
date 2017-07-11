@@ -6,7 +6,7 @@
 /*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:50:56 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/02/06 19:03:14 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/07/11 18:11:01 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <colors.h>
+# include <buffer_controler.h>
+# include <get_next_line.h>
 
-# define ABS(x) (x<0) ? (x*-1) : (x)
+//# define ABS(x) (x<0) ? (x*-1) : (x)
 
 typedef struct	s_list
 {
@@ -25,6 +28,12 @@ typedef struct	s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }				t_list;
+
+typedef enum	e_bool
+{
+	false = 0,
+	true = 1
+}				t_bool;
 
 void			*ft_memset (void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
@@ -72,6 +81,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_itoa(int n);
+
 void			ft_putchar(char c);
 void			ft_putstr(const char *str);
 void			ft_putendl(char const *s);
@@ -80,6 +90,15 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+
+void			ft_putcharcolor(char c, char *color);
+void			ft_putstrcolor(const char *str, char *color);
+void			ft_putendlcolor(char const *s, char *color);
+void			ft_putnbrcolor(int nb, char *color);
+void			ft_putcharcolor_fd(char c, int fd, char *color);
+void			ft_putstrcolor_fd(char const *s, int fd, char *color);
+void			ft_putendlcolor_fd(char const *s, int fd, char *color);
+void			ft_putnbrcolor_fd(int n, int fd, char *color);
 
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

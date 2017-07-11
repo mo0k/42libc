@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_putstrcolor.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:33:22 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/04/07 22:21:18 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/03/15 23:40:02 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/03/16 00:07:01 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void		ft_putstrcolor(const char *str, char *color)
 {
-	if (!s)
+	if (!str)
 		return ;
-	write(1, s, ft_strlen(s));
-	ft_putchar('\n');
+	ft_putstr(color);
+	write(1, str, (int)ft_strlen(str));
+	ft_putstr(C_DFL);
 }
