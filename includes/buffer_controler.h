@@ -6,7 +6,7 @@
 /*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 16:16:47 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/07/11 18:07:22 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/07/11 20:35:13 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ typedef struct			s_control_malloc
 
 void					init_buffer_controler(t_buffer_controler *controler);
 void					print_buffer_controler(t_buffer_controler *controler);
-int						fill_buffer(t_buffer_controler *controler, char *input);
+int						fill_buffer_controler(t_buffer_controler *ctrl, char *input);
 
 #endif

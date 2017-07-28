@@ -6,7 +6,7 @@
 /*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:50:56 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/07/11 18:11:01 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/07/11 19:57:04 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <buffer_controler.h>
 # include <get_next_line.h>
 
-//# define ABS(x) (x<0) ? (x*-1) : (x)
+# define ABS(x) (x<0) ? (x*-1) : (x)
 
 typedef struct	s_list
 {
