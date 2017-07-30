@@ -12,129 +12,167 @@
 
 NAME = libft.a
 
-CC = gcc
-
 CFLAGS = -Wall -Werror -Wextra
+CC = gcc $(CFLAGS)
 
 INC_PATH = includes
 
-INCS = $(INC_PATH)/buffer_controler.h	\
+INCS = $(INC_PATH)/libft.h				\
+		$(INC_PATH)/array.h				\
+		$(INC_PATH)/charac.h			\
+		$(INC_PATH)/convert.h			\
+		$(INC_PATH)/integer.h			\
+		$(INC_PATH)/list.h				\
+		$(INC_PATH)/memory.h			\
+		$(INC_PATH)/puts.h				\
+		$(INC_PATH)/string.h			\
 		$(INC_PATH)/colors.h			\
 		$(INC_PATH)/get_next_line.h		\
-		$(INC_PATH)/libft.h	
+		$(INC_PATH)/buffer_controler.h	\
 
 SRCS_PATH = sources
 
-SRCS = 	$(SRCS_PATH)/ft_memset.c			\
-		$(SRCS_PATH)/ft_bzero.c			\
-		$(SRCS_PATH)/ft_memcpy.c			\
-		$(SRCS_PATH)/ft_memccpy.c		\
-		$(SRCS_PATH)/ft_memmove.c		\
-		$(SRCS_PATH)/ft_memchr.c			\
-		$(SRCS_PATH)/ft_memcmp.c			\
-		$(SRCS_PATH)/ft_strlen.c			\
-		$(SRCS_PATH)/ft_strdup.c			\
-		$(SRCS_PATH)/ft_strcpy.c			\
-		$(SRCS_PATH)/ft_strncpy.c		\
-		$(SRCS_PATH)/ft_strcat.c			\
-		$(SRCS_PATH)/ft_strncat.c		\
-		$(SRCS_PATH)/ft_strlcat.c		\
-		$(SRCS_PATH)/ft_strchr.c			\
-		$(SRCS_PATH)/ft_strrchr.c		\
-		$(SRCS_PATH)/ft_strstr.c			\
-		$(SRCS_PATH)/ft_strnstr.c		\
-		$(SRCS_PATH)/ft_strcmp.c			\
-		$(SRCS_PATH)/ft_strncmp.c		\
-		$(SRCS_PATH)/ft_atoi.c			\
-		$(SRCS_PATH)/ft_isalpha.c		\
-		$(SRCS_PATH)/ft_isdigit.c		\
-		$(SRCS_PATH)/ft_isalnum.c		\
-		$(SRCS_PATH)/ft_isascii.c		\
-		$(SRCS_PATH)/ft_isprint.c		\
-		$(SRCS_PATH)/ft_toupper.c		\
-		$(SRCS_PATH)/ft_tolower.c		\
-		$(SRCS_PATH)/ft_memalloc.c		\
-		$(SRCS_PATH)/ft_memdel.c			\
-		$(SRCS_PATH)/ft_strnew.c			\
-		$(SRCS_PATH)/ft_strdelnew.c			\
-		$(SRCS_PATH)/ft_strdel.c			\
-		$(SRCS_PATH)/ft_strclr.c			\
-		$(SRCS_PATH)/ft_striter.c		\
-		$(SRCS_PATH)/ft_striteri.c		\
-		$(SRCS_PATH)/ft_strmap.c			\
-		$(SRCS_PATH)/ft_strmapi.c		\
-		$(SRCS_PATH)/ft_strequ.c			\
-		$(SRCS_PATH)/ft_strnequ.c		\
-		$(SRCS_PATH)/ft_strsub.c			\
-		$(SRCS_PATH)/ft_strjoin.c		\
-		$(SRCS_PATH)/ft_strtrim.c		\
-		$(SRCS_PATH)/ft_strsplit.c		\
-		$(SRCS_PATH)/ft_itoa.c			\
-		$(SRCS_PATH)/ft_putchar.c		\
-		$(SRCS_PATH)/ft_putchar_fd.c		\
-		$(SRCS_PATH)/ft_putstr.c			\
-		$(SRCS_PATH)/ft_putstr_fd.c		\
-		$(SRCS_PATH)/ft_putendl.c		\
-		$(SRCS_PATH)/ft_putendl_fd.c		\
-		$(SRCS_PATH)/ft_putnbr.c			\
-		$(SRCS_PATH)/ft_putnbr_fd.c		\
-		$(SRCS_PATH)/ft_putcharcolor.c		\
-		$(SRCS_PATH)/ft_putcharcolor_fd.c		\
-		$(SRCS_PATH)/ft_putstrcolor.c			\
-		$(SRCS_PATH)/ft_putstrcolor_fd.c		\
-		$(SRCS_PATH)/ft_putendlcolor.c		\
-		$(SRCS_PATH)/ft_putendlcolor_fd.c		\
-		$(SRCS_PATH)/ft_putnbrcolor.c			\
-		$(SRCS_PATH)/ft_putnbrcolor_fd.c		\
-		$(SRCS_PATH)/ft_lstnew.c			\
-		$(SRCS_PATH)/ft_lstdelone.c		\
-		$(SRCS_PATH)/ft_lstdel.c			\
-		$(SRCS_PATH)/ft_lstdelfirst.c			\
-		$(SRCS_PATH)/ft_lstdelnext.c			\
-		$(SRCS_PATH)/ft_lstadd_start.c			\
-		$(SRCS_PATH)/ft_lstadd_end.c			\
-		$(SRCS_PATH)/ft_lstrev.c			\
-		$(SRCS_PATH)/ft_lstiter.c		\
-		$(SRCS_PATH)/ft_lstselect.c		\
-		$(SRCS_PATH)/ft_lstmap.c			\
-		$(SRCS_PATH)/get_next_line.c		\
-		$(SRCS_PATH)/ft_nbrlen.c			\
-		$(SRCS_PATH)/ft_memrcpy.c		\
-		$(SRCS_PATH)/ft_lstlen.c			\
-		$(SRCS_PATH)/ft_is_space.c 		\
-		$(SRCS_PATH)/ft_swap.c			\
-		$(SRCS_PATH)/ft_range.c			\
-		$(SRCS_PATH)/ft_foreach.c		\
-		$(SRCS_PATH)/ft_count_if.c		\
-		$(SRCS_PATH)/ft_putstrtab.c			\
-		$(SRCS_PATH)/ft_delstrtab.c			\
-		$(SRCS_PATH)/ft_putnbr_base.c 		\
-		$(SRCS_PATH)/ft_itoa_base.c 		\
-		$(SRCS_PATH)/ft_stracat.c 			\
-		$(SRCS_PATH)/ft_triple_tab.c 			\
-		$(SRCS_PATH)/ft_strpadding_right.c 			\
-		$(SRCS_PATH)/ft_strpadding_left.c 			\
-		$(SRCS_PATH)/ft_str3join.c			\
-		$(SRCS_PATH)/ft_addchar.c			\
-		$(SRCS_PATH)/buffer_controler.c
+CHARAC_PATH = $(SRCS_PATH)/charac
+CHARAC =		$(CHARAC_PATH)/ft_isalnum.c		\
+				$(CHARAC_PATH)/ft_isalpha.c		\
+				$(CHARAC_PATH)/ft_isascii.c		\
+				$(CHARAC_PATH)/ft_isdigit.c		\
+				$(CHARAC_PATH)/ft_isprint.c		\
+				$(CHARAC_PATH)/ft_isspace.c		\
+				$(CHARAC_PATH)/ft_tolower.c		\
+				$(CHARAC_PATH)/ft_toupper.c
 
+INTEGER_PATH = $(SRCS_PATH)/integer
+INTEGER =		$(INTEGER_PATH)/ft_nbrlen.c		\
+				$(INTEGER_PATH)/ft_swap.c
 
-OBJ	= $(SRCS:%.c=%.o)
+STRING_PATH = $(SRCS_PATH)/string
+STRING =		$(STRING_PATH)/ft_strlen.c				\
+				$(STRING_PATH)/ft_strdup.c				\
+				$(STRING_PATH)/ft_strcpy.c				\
+				$(STRING_PATH)/ft_strncpy.c				\
+				$(STRING_PATH)/ft_strcat.c				\
+				$(STRING_PATH)/ft_strncat.c				\
+				$(STRING_PATH)/ft_strlcat.c				\
+				$(STRING_PATH)/ft_strchr.c				\
+				$(STRING_PATH)/ft_strrchr.c				\
+				$(STRING_PATH)/ft_strstr.c				\
+				$(STRING_PATH)/ft_strnstr.c				\
+				$(STRING_PATH)/ft_strcmp.c				\
+				$(STRING_PATH)/ft_strncmp.c				\
+				$(STRING_PATH)/ft_strnew.c				\
+				$(STRING_PATH)/ft_strdelnew.c			\
+				$(STRING_PATH)/ft_strdel.c				\
+				$(STRING_PATH)/ft_strclr.c				\
+				$(STRING_PATH)/ft_striter.c				\
+				$(STRING_PATH)/ft_striteri.c			\
+				$(STRING_PATH)/ft_strmap.c				\
+				$(STRING_PATH)/ft_strmapi.c				\
+				$(STRING_PATH)/ft_strequ.c				\
+				$(STRING_PATH)/ft_strnequ.c				\
+				$(STRING_PATH)/ft_strsub.c				\
+				$(STRING_PATH)/ft_strjoin.c				\
+				$(STRING_PATH)/ft_strtrim.c				\
+				$(STRING_PATH)/ft_strsplit.c			\
+				$(STRING_PATH)/ft_stracat.c 			\
+				$(STRING_PATH)/ft_strpadding_right.c 	\
+				$(STRING_PATH)/ft_strpadding_left.c 	\
+				$(STRING_PATH)/ft_str3join.c			\
+				$(STRING_PATH)/ft_straddc.c
+
+ARRAY_PATH = $(SRCS_PATH)/array
+ARRAY =		$(ARRAY_PATH)/ft_count_if.c				\
+				$(ARRAY_PATH)/ft_delstrtab.c		\
+				$(ARRAY_PATH)/ft_foreach.c			\
+				$(ARRAY_PATH)/ft_range.c			\
+				$(ARRAY_PATH)/ft_triple_tab.c
+
+MEMORY_PATH = $(SRCS_PATH)/memory
+MEMORY =		$(MEMORY_PATH)/ft_memset.c			\
+				$(MEMORY_PATH)/ft_bzero.c			\
+				$(MEMORY_PATH)/ft_memcpy.c			\
+				$(MEMORY_PATH)/ft_memccpy.c			\
+				$(MEMORY_PATH)/ft_memmove.c			\
+				$(MEMORY_PATH)/ft_memchr.c			\
+				$(MEMORY_PATH)/ft_memcmp.c			\
+				$(MEMORY_PATH)/ft_memalloc.c		\
+				$(MEMORY_PATH)/ft_memdel.c			\
+				$(MEMORY_PATH)/ft_memrcpy.c
+
+LIST_PATH = $(SRCS_PATH)/list
+LIST =			$(LIST_PATH)/ft_lstnew.c			\
+				$(LIST_PATH)/ft_lstdelone.c			\
+				$(LIST_PATH)/ft_lstdel.c			\
+				$(LIST_PATH)/ft_lstdelfirst.c		\
+				$(LIST_PATH)/ft_lstdelnext.c		\
+				$(LIST_PATH)/ft_lstadd_start.c		\
+				$(LIST_PATH)/ft_lstadd_end.c		\
+				$(LIST_PATH)/ft_lstrev.c			\
+				$(LIST_PATH)/ft_lstiter.c			\
+				$(LIST_PATH)/ft_lstselect.c			\
+				$(LIST_PATH)/ft_lstmap.c
+
+PUTS_PATH = $(SRCS_PATH)/puts
+PUTSCOLOR_PATH =  $(PUTS_PATH)/color
+PUTS =			$(PUTS_PATH)/ft_putchar.c				\
+				$(PUTS_PATH)/ft_putchar_fd.c			\
+				$(PUTS_PATH)/ft_putstr.c				\
+				$(PUTS_PATH)/ft_putstr_fd.c				\
+				$(PUTS_PATH)/ft_putendl.c				\
+				$(PUTS_PATH)/ft_putendl_fd.c			\
+				$(PUTS_PATH)/ft_putnbr.c				\
+				$(PUTS_PATH)/ft_putnbr_fd.c				\
+				$(PUTS_PATH)/ft_putnbr_base.c			\
+				$(PUTS_PATH)/ft_putstrtab.c				\
+				$(PUTSCOLOR_PATH)/ft_putcharcolor.c		\
+				$(PUTSCOLOR_PATH)/ft_putcharcolor_fd.c	\
+				$(PUTSCOLOR_PATH)/ft_putstrcolor.c		\
+				$(PUTSCOLOR_PATH)/ft_putstrcolor_fd.c	\
+				$(PUTSCOLOR_PATH)/ft_putendlcolor.c		\
+				$(PUTSCOLOR_PATH)/ft_putendlcolor_fd.c	\
+				$(PUTSCOLOR_PATH)/ft_putnbrcolor.c		\
+				$(PUTSCOLOR_PATH)/ft_putnbrcolor_fd.c
+
+READLINE_PATH = $(SRCS_PATH)/readline
+READLINE =			$(READLINE_PATH)/get_next_line.c		\
+
+CONTROLER_PATH = $(SRCS_PATH)/controler
+CONTROLER=			$(CONTROLER_PATH)/buffer_controler.c	\
+
+CONVERT_PATH = $(SRCS_PATH)/convert
+CONVERT =		$(CONVERT_PATH)/ft_atoi.c					\
+				$(CONVERT_PATH)/ft_itoa.c					\
+				$(CONVERT_PATH)/ft_itoa_base.c
+
+SRCS = 	$(CHARAC) $(INTEGER) $(STRING) $(ARRAY) $(MEMORY) $(LIST) $(PUTS) \
+		$(READLINE) $(CONTROLER) $(CONVERT) 
+
+OBJS	= $(SRCS:%.c=%.o)
+C_LGREEN = "\033[92m"
+C_DFL	="\033[0m"
+
+ECHO = echo -n
 
 all: $(NAME)
 
-$(NAME): $(INCS) $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+$(NAME): $(INCS) $(OBJS_PATH) $(OBJS) Makefile
+	@ar rcs $(NAME) $(OBJS)
+	@echo $(C_LGREEN)"libft compiled"$(C_DFL)
+chaine='-\|/-\|'
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INC_PATH) -c -o $@ $?
+	@$(CC) -I $(INC_PATH) -c -o $@ $<
+	@$(ECHO) 'Linking' $@
+	@echo  "..."✅
 
 clean: 
-	/bin/rm -f $(SRCS_PATH)/*.o
+	@/bin/rm -f $(OBJS)
+	@echo "Objects files deleted."
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
+	@echo "Librairy deleted."
 
 re: fclean all
 
-.PHONY: clean
+.PHONY: objects OBJS clean fclean

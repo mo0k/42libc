@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:48:23 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/05 14:48:24 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/07/30 00:27:50 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char		**ft_strsplit(char const *s, char c)
 		return (NULL);
 	str = (char *)s;
 	nbr_word = count_word(str, c);
-	if (!(tab = (char**)malloc(sizeof(char*) * nbr_word + 1)))
+	if (!(tab = (char**)malloc(sizeof(char*) * (nbr_word + 1))))
 		return (NULL);
 	while (word < nbr_word)
 	{
