@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffer_controler.c                                 :+:      :+:    :+:   */
+/*   buffer_malloc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 08:21:54 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/07/11 20:34:53 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/08/03 00:32:32 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <buffer_controler.h>
 
-void			init_buffer_controler(t_buffer_controler *controler)
+void			init_buffer_malloc(t_buffer_malloc *controler)
 {
-	ft_bzero(controler->starter_buffer, BUFF_SIZE_INIT);
-	controler->buffer = controler->starter_buffer;
+	controler->buffer = ft_strnew(BUFF_SIZE_INIT);
 	controler->buff_size = BUFF_SIZE_INIT;
 	controler->remaining_size = BUFF_SIZE_INIT;
-	controler->increm = 2;
-	controler->malloc = 0;
+	controler->increm = 1;
 }
 
-void			print_buffer_controler(t_buffer_controler *controler)
+void				print_buffer_malloc(t_buffer_malloc *controler)
 {
 	ft_putstrcolor("+--------------------------+\n", C_YELLOW);
 	ft_putstrcolor("| ", C_YELLOW);
@@ -47,23 +45,19 @@ void			print_buffer_controler(t_buffer_controler *controler)
 	ft_putstrcolor("+--------------------------+\n", C_YELLOW);
 }
 
-static int		available_space(size_t new_size, size_t remaining_size)
-{
-	return ((new_size <= remaining_size) ? 1 : 0);
-}
-
-static int		fill_starter_buffer(t_buffer_controler *ctrl, char *input, size_t size)
+static int		fill_starter_buffer(t_buffer_malloc *ctrl, char *input, size_t size)
 {
 	if (!ctrl || !input)
 		return (0);
 	ft_putstrcolor("fill controler->starter_buffer\n", C_CYAN);
 	ft_strcat(ctrl->buffer, input);
 	ctrl->remaining_size -= size;
-	print_buffer_controler(ctrl);
+	//print_buffer_malloc(ctrl);
 	return (1);
 }
 
-static int		fill_buffer(t_buffer_controler *ctrl, char *input, size_t size)
+
+static int		fill_buffer(t_buffer_malloc *ctrl, char *input, size_t size)
 {
 	char		*new_buffer;
 
@@ -78,24 +72,20 @@ static int		fill_buffer(t_buffer_controler *ctrl, char *input, size_t size)
 	ft_strcpy(new_buffer, ctrl->buffer);
 	ft_strcat(new_buffer, input);
 	ctrl->remaining_size = ctrl->buff_size - ft_strlen(ctrl->buffer) - size;
-	if (ctrl->malloc)
-	{
-		ft_putstrcolor("free(controler->buffer)\n", C_MAGENTA);
-		free(ctrl->buffer);
-	}
-	ctrl->malloc = 1;
+	ft_putstrcolor("free(controler->buffer)\n", C_MAGENTA);
+	free(ctrl->buffer);
 	ctrl->buffer = new_buffer;
-	print_buffer_controler(ctrl);
+	//print_buffer_malloc(ctrl);
 	return (1);
 }
 
-int				fill_buffer_controler(t_buffer_controler *ctrl, char *input)
+int				fill_buffer_malloc(t_buffer_malloc *ctrl, char *input)
 {
 	size_t		new_size;
 
 	if (!ctrl || !input)
 		return (0);
-	new_size = ft_strlen(input);	
+	new_size = ft_strlen(input);
 	return (input && available_space(new_size, ctrl->remaining_size)) ?
 			fill_starter_buffer(ctrl, input, new_size) :
 			fill_buffer(ctrl, input, new_size);

@@ -137,7 +137,9 @@ READLINE_PATH = $(SRCS_PATH)/readline
 READLINE =			$(READLINE_PATH)/get_next_line.c		\
 
 CONTROLER_PATH = $(SRCS_PATH)/controler
-CONTROLER=			$(CONTROLER_PATH)/buffer_controler.c	\
+CONTROLER=			$(CONTROLER_PATH)/buffer_malloc.c	\
+					$(CONTROLER_PATH)/buffer_static.c	\
+					$(CONTROLER_PATH)/available_space.c	\
 
 CONVERT_PATH = $(SRCS_PATH)/convert
 CONVERT =		$(CONVERT_PATH)/ft_atoi.c					\
@@ -149,6 +151,8 @@ SRCS = 	$(CHARAC) $(INTEGER) $(STRING) $(ARRAY) $(MEMORY) $(LIST) $(PUTS) \
 
 OBJS	= $(SRCS:%.c=%.o)
 C_LGREEN = "\033[92m"
+C_LRED = "\033[91m"
+C_RED = "\033[31m"
 C_DFL	="\033[0m"
 
 ECHO = echo -n
@@ -163,15 +167,21 @@ chaine='-\|/-\|'
 %.o: %.c
 	@$(CC) -I $(INC_PATH) -c -o $@ $<
 	@$(ECHO) 'Linking' $@
-	@echo  "..."✅
+	@echo  ".........."$(C_LGREEN)✓$(C_DFL)
 
-clean: 
-	@/bin/rm -f $(OBJS)
-	@echo "Objects files deleted."
+clean:
+	@for i in $(OBJS); \
+	do if [ -e $$i ]; \
+		then echo 'Deleting' libft/$$i  ".........."$(C_RED)✗$(C_DFL);\
+			/bin/rm -f $$i; \
+		fi; \
+	done
+	@#for i in $(OBJS); do ; if [ -e $$i ] ; then ; echo yes; else ; echo no; fi ;echo 'Deleting' libft/$$i  ".........."$(C_RED)✗$(C_DFL); done
+	@#/bin/rm -f $(OBJS)
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "Librairy deleted."
+	@echo $(C_RED)"Librairy $(NAME) deleted."$(C_DFL)
 
 re: fclean all
 

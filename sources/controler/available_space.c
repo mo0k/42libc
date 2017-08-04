@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   available_space.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/06 16:29:38 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/07/31 23:33:01 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/07/31 00:01:40 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/07/31 00:24:22 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				ft_isspace(char c)
+#include <buffer_controler.h>
+
+int		available_space(size_t new_size, size_t remaining_size)
 {
-	return (c == ' ' || c == '\t' || c == '\n') ? (1) : (0);
+	return ((new_size <= remaining_size) ? 1 : 0);
 }
