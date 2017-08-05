@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbrcolor_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 23:42:23 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/07/11 19:55:52 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/08/05 22:42:56 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ void		ft_putnbrcolor_fd(int n, int fd, char *color)
 
 	l_n = (long)n;
 	d = 1;
+	ft_putstr_fd(color, fd);
 	if (l_n == 0)
 	{
 		ft_putchar_fd('0', fd);
+		ft_putstr_fd(C_DFL, fd);
 		return ;
 	}
 	if (l_n < 0)
@@ -31,7 +33,6 @@ void		ft_putnbrcolor_fd(int n, int fd, char *color)
 	}
 	while (l_n / d)
 		d *= 10;
-	ft_putstr_fd(color, fd);
 	while (d - 1)
 	{
 		ft_putchar_fd((l_n - (l_n / d * d)) / (d / 10) + 48, fd);
