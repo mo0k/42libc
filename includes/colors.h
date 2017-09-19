@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 23:39:40 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/08/13 01:17:24 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/09/16 09:11:31 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define C_BLUE			"\033[34m"
 # define C_MAGENTA		"\033[35m"
 # define C_CYAN			"\033[36m"
-# define C_GRAY			"\033[37m"
-# define C_DGRAY		"\033[90m"
+# define C_GREY			"\033[37m"
+# define C_DGREY		"\033[90m"
 # define C_LRED			"\033[91m"
 # define C_LGREEN		"\033[92m"
 # define C_LYELLOW		"\033[93m"

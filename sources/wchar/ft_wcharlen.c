@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   charac.h                                           :+:      :+:    :+:   */
+/*   ft_wcharlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/30 00:18:25 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/09/15 23:27:12 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/09/15 23:30:58 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/09/15 23:52:45 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARAC_H
-# define CHARAC_H
+#include <wchars.h>
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_isspace(char c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
+char	ft_wcharlen(wchar_t c)
+{
+	unsigned int e;
 
-#endif
+	e = (unsigned int)c;
+	if (c >= 0 && c <= 127)
+		return (1);
+	else if (e > 127 && e < 0x10FFFF)
+	{
+		if (e < 0x07FF)
+			return (2);
+		else if (e < 0xFFFF)
+			return (3);
+		else
+			return (4);
+	}
+	else
+		return (0);
+}

@@ -26,6 +26,7 @@ INCS = $(INC_PATH)/libft.h				\
 		$(INC_PATH)/memory.h			\
 		$(INC_PATH)/puts.h				\
 		$(INC_PATH)/string.h			\
+		$(INC_PATH)/wchars.h			\
 		$(INC_PATH)/colors.h			\
 		$(INC_PATH)/get_next_line.h		\
 		$(INC_PATH)/buffer_controler.h	\
@@ -146,8 +147,12 @@ CONVERT =		$(CONVERT_PATH)/ft_atoi.c					\
 				$(CONVERT_PATH)/ft_itoa.c					\
 				$(CONVERT_PATH)/ft_itoa_base.c
 
+WCHAR_PATH = $(SRCS_PATH)/wchar
+WCHAR =			$(WCHAR_PATH)/ft_wcharlen.c				\
+				$(WCHAR_PATH)/ft_wstrlen.c
+
 SRCS = 	$(CHARAC) $(INTEGER) $(STRING) $(ARRAY) $(MEMORY) $(LIST) $(PUTS) \
-		$(READLINE) $(CONTROLER) $(CONVERT) 
+		$(READLINE) $(CONTROLER) $(CONVERT) $(WCHAR)
 
 OBJS	= $(SRCS:%.c=%.o)
 C_LGREEN = "\033[92m"

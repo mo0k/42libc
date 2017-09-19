@@ -6,14 +6,14 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 00:20:24 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/07/30 00:52:17 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/09/15 23:31:18 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRING_H
 # define STRING_H
 
-# include <stdlib.h> 
+# include <stdlib.h>
 
 size_t		ft_strlen(const char *str);
 char		*ft_strdup(const char *src);

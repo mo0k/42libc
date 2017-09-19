@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:50:56 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/08/07 16:17:34 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/09/15 23:55:44 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef enum	e_bool
 # include <puts.h>
 # include <colors.h>
 # include <string.h>
+# include <wchars.h>
 # include <buffer_controler.h>
 # include <get_next_line.h>
 
