@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:50:56 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/09/15 23:55:44 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/09/25 11:47:46 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ typedef enum	e_bool
 	FALSE = 0,
 	TRUE = 1
 }				t_bool;
+
+typedef long int 				t_lint;
+typedef long long int 			t_llint;
+typedef unsigned int 			t_uint;
+typedef unsigned long int 		t_ulint;
+typedef unsigned long long int 	t_ullint;
+typedef unsigned short int 		t_ushortint;
+typedef unsigned char 			t_uchar;
 
 # include <array.h>
 # include <charac.h>

@@ -79,6 +79,7 @@ STRING =		$(STRING_PATH)/ft_strlen.c				\
 				$(STRING_PATH)/ft_strpadding_right.c 	\
 				$(STRING_PATH)/ft_strpadding_left.c 	\
 				$(STRING_PATH)/ft_str3join.c			\
+				$(STRING_PATH)/ft_strtoupper.c			\
 				$(STRING_PATH)/ft_straddc.c
 
 ARRAY_PATH = $(SRCS_PATH)/array
@@ -149,7 +150,8 @@ CONVERT =		$(CONVERT_PATH)/ft_atoi.c					\
 
 WCHAR_PATH = $(SRCS_PATH)/wchar
 WCHAR =			$(WCHAR_PATH)/ft_wcharlen.c				\
-				$(WCHAR_PATH)/ft_wstrlen.c
+				$(WCHAR_PATH)/ft_wstrlen.c				\
+				$(WCHAR_PATH)/ft_wstrnlen.c
 
 SRCS = 	$(CHARAC) $(INTEGER) $(STRING) $(ARRAY) $(MEMORY) $(LIST) $(PUTS) \
 		$(READLINE) $(CONTROLER) $(CONVERT) $(WCHAR)

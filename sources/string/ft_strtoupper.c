@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/15 23:30:58 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/09/21 12:48:08 by mo0ky            ###   ########.fr       */
+/*   Created: 2017/09/24 22:57:16 by mo0ky             #+#    #+#             */
+/*   Updated: 2017/09/24 23:06:38 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <wchars.h>
-//valeur engatif si non complet
-int		ft_wstrlen(wchar_t *str)
+#include <string.h>
+#include <charac.h>
+
+char	*ft_strtoupper(char *str)
 {
-	int	wstrlen;
-	int wcharlen;
+	int		i;
 
-	wstrlen = 0;
-	while (*str)
-	{
-		if (!(wcharlen = ft_wcharlen(*str)))
-		{
-			//printf("return wstrlen:%d\n", wstrlen * -1);
-			return (wstrlen * -1);
-		}
-		wstrlen += wcharlen; 
-		//printf("wcharlen:%d\twstrlen%d\n", wcharlen, wstrlen);
-		++str;
-	}
-	return ((!wstrlen)) ? 1 : wstrlen; 
+	i = -1;
+	while (str[++i])
+		str[i] = ft_toupper(str[i]);
+	return (str);
 }
-

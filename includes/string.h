@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 00:20:24 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/09/15 23:31:18 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/09/24 23:05:06 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int			ft_straddc(char **dst, char c);
 int			ft_strpadding_right(char **str, int len_max);
 int			ft_strpadding_left(char **str, int len_max);
 char		*ft_str3join(char const *s1, char const *s2, char const *s3);
+char		*ft_strtoupper(char *str);
 
 #endif
