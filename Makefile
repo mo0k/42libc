@@ -112,6 +112,7 @@ LIST =			$(LIST_PATH)/ft_lstnew.c			\
 				$(LIST_PATH)/ft_lstrev.c			\
 				$(LIST_PATH)/ft_lstiter.c			\
 				$(LIST_PATH)/ft_lstselect.c			\
+				$(LIST_PATH)/ft_lstlen.c			\
 				$(LIST_PATH)/ft_lstmap.c
 
 PUTS_PATH = $(SRCS_PATH)/puts
