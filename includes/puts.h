@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   puts.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 00:20:05 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/08/13 01:11:17 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/10/01 18:22:44 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUTS_H
 # define PUTS_H
 
-#include <unistd.h>
+# include <unistd.h>
 
 void		ft_putchar(char c);
 void		ft_putstr(const char *str);

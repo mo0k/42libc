@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:36:34 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/09/09 16:04:36 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/10/01 20:34:47 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 char			*ft_strchr(const char *s, int c)
 {
-		char		*ptr;
+	char		*ptr;
 
 	if (!s)
 		return (NULL);
-	//len = ft_strlen(s) + 1;
 	ptr = (char *)s;
 	while (*ptr)
 	{

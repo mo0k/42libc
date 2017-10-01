@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 00:18:14 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/08/13 01:10:34 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/10/01 17:56:56 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-int 		*ft_range(int min, int max);
+int			*ft_range(int min, int max);
 void		ft_foreach(int *tab, int length, void (*f)(int));
 int			ft_count_if(char **tab, int (*f)(char*));
 void		ft_delstrtab(char **tab);

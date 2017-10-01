@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   memory.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 00:19:57 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/08/13 01:11:14 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/10/01 18:22:37 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MEMORY_H
 # define MEMORY_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 void	*ft_memset (void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
