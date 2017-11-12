@@ -6,13 +6,12 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 06:38:16 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/11/13 00:24:22 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/11/13 00:28:22 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft.h"
-#include <stdio.h>
 
 static t_file		*check_fd(int fd, t_file **f)
 {
