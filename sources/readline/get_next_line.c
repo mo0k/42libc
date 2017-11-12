@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 06:38:16 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/05/19 23:27:06 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/11/13 00:24:22 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int			read_line(t_file *f, char **line, char *buff)
 
 	if (!f)
 		return (ERROR);
-	while ((ret = read(f->fd, buff, BUFF_SIZE)) || f->eof == 0)
+	while ((ret = read(f->fd, buff, BUFF_SIZE)) > 0 || (f->data && f->eof == 0))
 	{
 		buff[ret] = 0;
 		if (!f->data)
