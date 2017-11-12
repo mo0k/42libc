@@ -3,30 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:50:56 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/09/27 01:48:04 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/10/01 18:23:06 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-typedef enum	e_bool
-{
-	FALSE = 0,
-	TRUE = 1
-}				t_bool;
-
-typedef long int 				t_lint;
-typedef long long int 			t_llint;
-typedef unsigned int 			t_uint;
-typedef unsigned long int 		t_ulint;
-typedef unsigned long long int 	t_ullint;
-typedef unsigned short int 		t_ushortint;
-typedef unsigned char 			t_uchar;
-
+# include <types.h>
 # include <array.h>
 # include <charac.h>
 # include <convert.h>

@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/05 14:41:38 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/10/01 20:35:33 by jmoucade         ###   ########.fr       */
+/*   Created: 2017/10/01 18:15:46 by jmoucade          #+#    #+#             */
+/*   Updated: 2017/10/01 18:17:25 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef TYPES_H
+# define TYPES_H
 
-size_t		ft_strlen(const char *str)
+typedef enum	e_bool
 {
-	char	*cur;
+	FALSE = 0,
+	TRUE = 1
+}				t_bool;
 
-	cur = (char *)str;
-	while (1)
-	{
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-		if (!*(cur++))
-			break ;
-	}
-	return (cur - str - 1);
-}
+typedef long int				t_lint;
+typedef long long int			t_llint;
+typedef unsigned int			t_uint;
+typedef unsigned long int		t_ulint;
+typedef unsigned long long int	t_ullint;
+typedef unsigned short int		t_ushortint;
+typedef unsigned char			t_uchar;
+
+#endif

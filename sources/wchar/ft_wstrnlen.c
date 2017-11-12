@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wstrnlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/24 20:55:24 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/09/24 20:55:45 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/10/01 20:56:30 by jmoucade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_wstrnlen(wchar_t *str, int n)
 {
-	int	wstrlen;
-	int wcharlen;
+	int		wstrlen;
+	int		wcharlen;
 
 	wstrlen = 0;
 	if (n <= 0)
@@ -23,15 +23,11 @@ int		ft_wstrnlen(wchar_t *str, int n)
 	while (*str)
 	{
 		if (!(wcharlen = ft_wcharlen(*str)))
-		{
-			//printf("return wstrlen:%d\n", wstrlen * -1);
 			return (wstrlen * -1);
-		}
 		if (wstrlen + wcharlen > (int)n)
 			return (wstrlen);
-		wstrlen += wcharlen; 
-		//printf("wcharlen:%d\twstrlen%d\n", wcharlen, wstrlen);
+		wstrlen += wcharlen;
 		++str;
 	}
-	return ((!wstrlen)) ? 1 : wstrlen; 
+	return ((!wstrlen)) ? 1 : wstrlen;
 }

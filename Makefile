@@ -6,7 +6,7 @@
 #   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2016/08/14 13:07:25 by jmoucade          #+#    #+#             #
-#    Updated: 2017/07/11 17:59:52 by jmoucade         ###   ########.fr        #
+#    Updated: 2017/10/01 22:07:34 by jmoucade         ###   ########.fr        #
 #                                                                            #
 # ************************************************************************** #
 
@@ -18,6 +18,7 @@ CC = gcc $(CFLAGS)
 INC_PATH = includes
 
 INCS = $(INC_PATH)/libft.h				\
+		$(INC_PATH)/types.h				\
 		$(INC_PATH)/array.h				\
 		$(INC_PATH)/charac.h			\
 		$(INC_PATH)/convert.h			\
@@ -140,9 +141,12 @@ READLINE_PATH = $(SRCS_PATH)/readline
 READLINE =			$(READLINE_PATH)/get_next_line.c		\
 
 CONTROLER_PATH = $(SRCS_PATH)/controler
-CONTROLER=			$(CONTROLER_PATH)/buffer_malloc.c	\
-					$(CONTROLER_PATH)/buffer_static.c	\
-					$(CONTROLER_PATH)/available_space.c	\
+CONTROLER=			$(CONTROLER_PATH)/buffer_malloc.c		\
+					$(CONTROLER_PATH)/static/init.c			\
+					$(CONTROLER_PATH)/static/fill_buffer.c	\
+					$(CONTROLER_PATH)/static/filln_buffer.c	\
+					$(CONTROLER_PATH)/static/print_buffer.c	\
+					$(CONTROLER_PATH)/available_space.c		\
 
 CONVERT_PATH = $(SRCS_PATH)/convert
 CONVERT =		$(CONVERT_PATH)/ft_atoi.c					\
@@ -169,27 +173,18 @@ all: $(NAME)
 
 $(NAME): $(INCS) $(OBJS_PATH) $(OBJS) Makefile
 	@ar rcs $(NAME) $(OBJS)
-	@echo $(C_LGREEN)"libft compiled"$(C_DFL)
-chaine='-\|/-\|'
+	@echo $(C_LGREEN)"$(NAME) compiled"$(C_DFL)
 
 %.o: %.c
 	@$(CC) -I $(INC_PATH) -c -o $@ $<
-	@$(ECHO) 'Linking' $@
-	@echo  ".........."$(C_LGREEN)✓$(C_DFL)
+	@echo "Linking file" $@
 
 clean:
-	@for i in $(OBJS); \
-	do if [ -e $$i ]; \
-		then echo 'Deleting' libft/$$i  ".........."$(C_RED)✗$(C_DFL);\
-			/bin/rm -f $$i; \
-		fi; \
-	done
-	@#for i in $(OBJS); do ; if [ -e $$i ] ; then ; echo yes; else ; echo no; fi ;echo 'Deleting' libft/$$i  ".........."$(C_RED)✗$(C_DFL); done
-	@#/bin/rm -f $(OBJS)
+	@/bin/rm -f $(OBJS)
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo $(C_RED)"Librairy $(NAME) deleted."$(C_DFL)
+	@echo $(C_RED)"Delete $(NAME)."$(C_DFL)
 
 re: fclean all
 
