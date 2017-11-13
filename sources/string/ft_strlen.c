@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:41:38 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/10/01 20:35:33 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/11/13 14:22:07 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t		ft_strlen(const char *str)
 {
 	char	*cur;
 
+	if (!str)
+		return (0);
 	cur = (char *)str;
 	while (1)
 	{

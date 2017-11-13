@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 06:38:16 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/11/13 00:28:22 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/11/13 14:53:31 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,43 @@ static t_file		*check_fd(int fd, t_file **f)
 	return (check_fd(fd, &new->next));
 }
 
+static int			eol_found(t_file *f, char **line, char *addr_eol)
+{
+	char			*tmp;
+
+	*addr_eol = 0;
+	tmp = NULL;
+	if (!(tmp = ft_strdup(addr_eol + 1)))
+		return (ERROR);
+	if (!(*line = ft_strdup(f->data)))
+	{
+		(tmp) ? ft_memdel((void*)(&tmp)) : 0;
+		return (ERROR);
+	}
+	ft_memdel((void*)(&f->data));
+	if (tmp && ft_strlen(tmp) > 0 && !(f->data = ft_strdup(tmp)))
+	{
+		(*line) ? ft_memdel((void*)(line)) : 0;
+		(tmp) ? ft_memdel((void*)(&tmp)) : 0;
+		return (ERROR);
+	}
+	(tmp) ? ft_memdel((void*)(&tmp)) : 0;
+	return (EOL);
+}
+
 static int			is_endline(t_file *f, char **line, int ret)
 {
 	char			*r;
-	char			*tmp;
 
 	if ((r = ft_strchr(f->data, 0x0a)))
-	{
-		*r = 0;
-		if (!(tmp = ft_strdup(r + 1)) ||
-			!(*line = ft_strdup(f->data)))
-			return (ERROR);
-		free(f->data);
-		if (!(f->data = ft_strdup(tmp)))
-			return (ERROR);
-		free(tmp);
-		return (EOL);
-	}
+		return (eol_found(f, line, r));
 	else if (ret == 0 && (int)ft_strlen(f->data) == 0)
 		f->eof = 1;
 	else if (ret == 0 && (int)ft_strlen(f->data) > 0)
 	{
 		if (!(*line = ft_strdup(f->data)))
 			return (ERROR);
-		(f->eof = 1) ? free(f->data) : NULL;
+		(f->eof = 1) ? ft_memdel((void*)(&f->data)) : NULL;
 		return (EOL);
 	}
 	return (0);

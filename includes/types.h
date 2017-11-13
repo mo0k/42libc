@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/01 18:15:46 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/10/01 18:17:25 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/11/13 15:02:28 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPES_H
 # define TYPES_H
-
-typedef enum	e_bool
-{
-	FALSE = 0,
-	TRUE = 1
-}				t_bool;
 
 typedef long int				t_lint;
 typedef long long int			t_llint;
