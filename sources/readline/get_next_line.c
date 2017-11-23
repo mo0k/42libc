@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   gext_next_line.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 06:38:16 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/11/13 14:53:31 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/11/20 13:46:54 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "libft.h"
+#include <get_next_line.h>
 
 static t_file		*check_fd(int fd, t_file **f)
 {
@@ -26,8 +25,7 @@ static t_file		*check_fd(int fd, t_file **f)
 		if (!(new = (t_file*)malloc(sizeof(t_file))))
 			return (NULL);
 		new->fd = fd;
-		new->data = NULL;
-		new->eof = 0;
+		new->data = ft_strnew(BUFF_SIZE);
 		new->next = NULL;
 		*f = new;
 		return (new);
@@ -40,94 +38,58 @@ static t_file		*check_fd(int fd, t_file **f)
 	return (check_fd(fd, &new->next));
 }
 
-static int			eol_found(t_file *f, char **line, char *addr_eol)
+static int		buff(char *buff, char **line)
 {
-	char			*tmp;
+	int		i;
+	int		begin;
+	char	*sub;
+	char	*tmp_line;
 
-	*addr_eol = 0;
-	tmp = NULL;
-	if (!(tmp = ft_strdup(addr_eol + 1)))
-		return (ERROR);
-	if (!(*line = ft_strdup(f->data)))
+	i = -1;
+	begin = 0;
+	while (++i < BUFF_SIZE && *(buff) != '\n')
+		if (*(buff++) == '\0' && *(buff))
+			begin = i + 1;
+	sub = ft_strsub(buff - i, begin, i - begin);
+	tmp_line = *line;
+	*line = ft_strjoin(tmp_line, sub);
+	ft_strdel(&tmp_line);
+	ft_strdel(&sub);
+	if (*buff == '\n')
 	{
-		(tmp) ? ft_memdel((void*)(&tmp)) : 0;
-		return (ERROR);
+		ft_bzero(buff - i, i + 1);
+		return (1);
 	}
-	ft_memdel((void*)(&f->data));
-	if (tmp && ft_strlen(tmp) > 0 && !(f->data = ft_strdup(tmp)))
-	{
-		(*line) ? ft_memdel((void*)(line)) : 0;
-		(tmp) ? ft_memdel((void*)(&tmp)) : 0;
-		return (ERROR);
-	}
-	(tmp) ? ft_memdel((void*)(&tmp)) : 0;
-	return (EOL);
-}
-
-static int			is_endline(t_file *f, char **line, int ret)
-{
-	char			*r;
-
-	if ((r = ft_strchr(f->data, 0x0a)))
-		return (eol_found(f, line, r));
-	else if (ret == 0 && (int)ft_strlen(f->data) == 0)
-		f->eof = 1;
-	else if (ret == 0 && (int)ft_strlen(f->data) > 0)
-	{
-		if (!(*line = ft_strdup(f->data)))
-			return (ERROR);
-		(f->eof = 1) ? ft_memdel((void*)(&f->data)) : NULL;
-		return (EOL);
-	}
+	if (line && *line && **line == '\0')
+		ft_strdel(line);
+	ft_bzero(buff - i, BUFF_SIZE);
 	return (0);
 }
 
-static int			read_line(t_file *f, char **line, char *buff)
-{
-	int				ret;
-	int				endline;
-
-	if (!f)
-		return (ERROR);
-	while ((ret = read(f->fd, buff, BUFF_SIZE)) > 0 || (f->data && f->eof == 0))
-	{
-		buff[ret] = 0;
-		if (!f->data)
-		{
-			if (!(f->data = ft_strdup(buff)))
-				return (ERROR);
-		}
-		else if (ret > 0)
-		{
-			if (!ft_stracat(&f->data, buff))
-				return (ERROR);
-		}
-		if ((endline = is_endline(f, line, ret)) == EOL)
-			return (EOL);
-		else if (endline == ERROR)
-			return (ERROR);
-	}
-	*line = NULL;
-	return (END_OF_FILE);
-}
 
 int					get_next_line(const int fd, char **line)
 {
 	static t_file	*f;
 	t_file			*tmp;
 	int				ret;
-	char			*buff;
 
-	if (!(buff = (char*)ft_memalloc(sizeof(char) * BUFF_SIZE + 1)))
-		return (ERROR);
+	if (!line)
+		return (-1);
+	*line = NULL;
+	if (BUFF_SIZE < 0)
+		return (-1);
 	if (!(tmp = check_fd(fd, &f)))
 		return (ERROR);
-	ret = read_line(tmp, line, buff);
-	free(buff);
-	if (ret == EOL)
-		return (EOL);
-	else if (ret == ERROR)
-		return (ERROR);
-	else
-		return (END_OF_FILE);
+	if (buff(f->data, line) == 1)
+		return (1);
+	while ((ret = read(f->fd, f->data, BUFF_SIZE)) > 0)
+	{
+		if (buff(f->data, line) == 1)
+			return (1);
+	}
+	if (ret < 0)
+		return (-1);
+	if (*line != NULL)
+		return (1);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <jmoucade@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/30 00:18:14 by mo0ky             #+#    #+#             */
-/*   Updated: 2017/10/01 17:56:56 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/11/18 20:07:55 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 int			*ft_range(int min, int max);
 void		ft_foreach(int *tab, int length, void (*f)(int));
 int			ft_count_if(char **tab, int (*f)(char*));
-void		ft_delstrtab(char **tab);
+char 		**ft_get_double_tab(int height, int width);
+void		ft_print_double_tab(char **tab);
+void		ft_delete_double_tab(char **tab);
 char		***ft_get_triple_tab(int line, int columm, int len);
 void		ft_print_triple_tab(char ***tab);
 void		ft_delete_triple_tab(char ***tab);

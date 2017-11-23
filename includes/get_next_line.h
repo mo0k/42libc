@@ -6,7 +6,7 @@
 /*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/26 06:38:24 by jmoucade          #+#    #+#             */
-/*   Updated: 2017/07/30 00:52:13 by mo0ky            ###   ########.fr       */
+/*   Updated: 2017/11/20 13:47:04 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>
+# include <libft.h>
 # include <stdlib.h>
 
 # define ERROR 		-1
@@ -31,5 +32,6 @@ typedef struct		s_file
 }					t_file;
 
 int					get_next_line(const int fd, char **line);
+int					gnl(int const fd, char **line);
 
 #endif

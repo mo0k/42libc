@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmoucade <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mo0ky <mo0ky@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/05 14:49:03 by jmoucade          #+#    #+#             */
-/*   Updated: 2016/11/05 14:49:04 by jmoucade         ###   ########.fr       */
+/*   Updated: 2017/11/19 17:02:39 by mo0ky            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char		*ft_strstr(const char *s1, const char *s2)
 	int		j;
 
 	i = -1;
+	if (!s1 || !s2)
+		return (NULL);
 	while (s1[++i] || !*s2)
 	{
 		j = 0;

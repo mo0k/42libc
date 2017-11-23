@@ -85,9 +85,9 @@ STRING =		$(STRING_PATH)/ft_strlen.c				\
 
 ARRAY_PATH = $(SRCS_PATH)/array
 ARRAY =		$(ARRAY_PATH)/ft_count_if.c				\
-				$(ARRAY_PATH)/ft_delstrtab.c		\
 				$(ARRAY_PATH)/ft_foreach.c			\
 				$(ARRAY_PATH)/ft_range.c			\
+				$(ARRAY_PATH)/ft_double_tab.c		\
 				$(ARRAY_PATH)/ft_triple_tab.c
 
 MEMORY_PATH = $(SRCS_PATH)/memory
@@ -139,6 +139,7 @@ PUTS =			$(PUTS_PATH)/ft_putchar.c				\
 
 READLINE_PATH = $(SRCS_PATH)/readline
 READLINE =			$(READLINE_PATH)/get_next_line.c		\
+					$(READLINE_PATH)/gnl.c
 
 CONTROLER_PATH = $(SRCS_PATH)/controler
 CONTROLER=			$(CONTROLER_PATH)/buffer_malloc.c		\
@@ -183,8 +184,10 @@ clean:
 	@/bin/rm -f $(OBJS)
 
 fclean: clean
+	@if [ -e $(NAME) ]; \
+	then echo $(C_RED)"Delete $(NAME)."$(C_DFL); \
+	fi;
 	@/bin/rm -f $(NAME)
-	@echo $(C_RED)"Delete $(NAME)."$(C_DFL)
 
 re: fclean all
 
